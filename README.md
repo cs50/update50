@@ -22,5 +22,8 @@ Click "Rebuild now" on bottom-right or press Ctrl (or Cmd) + Shift + P, search f
 From the default Codespace:
 
 ```
-$ curl https://raw.githubusercontent.com/cs50/update50/main/update50 | bash
+$ curl https://raw.githubusercontent.com/cs50/update50/main/update50 | bash -s ASSIGNMENT
+Updating ...
+Success!
+Click "Rebuild now" on bottom-right or press Ctrl (or Cmd) + Shift + P, search for "Rebuild Container" and click "Rebuild" to get the latest updates.
 ```
