@@ -23,5 +23,4 @@ From the default Codespace:
 
 ```
 $ curl https://raw.githubusercontent.com/cs50/update50/main/update50 | bash
-
 ```
