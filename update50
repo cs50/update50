@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -e -o errtrace -o pipefail
+
+green() {
+    echo -e "\033[32m$1\033[0m"
+}
+
+red() {
+    echo -e "\033[31m$1\033[0m"
+}
+
+trap 'red "Failed to update."' ERR
+
+update() {
+    parse_args "$@"
+    echo 'Updating ...'
+    local temp_dir="$(mktemp -d)"
+    git clone --depth 1 --quiet https://github.com/"$REPO" "$temp_dir"
+    local devcontainer='.devcontainer'
+    rm --force --recursive "$devcontainer"
+    cp --recursive "$temp_dir/$devcontainer" .
+    green 'Success!'
+    echo 'Click "Rebuild now" on bottom-right or press Ctrl (or Cmd) + Shift + P, search for "Rebuild' \
+        'Container" and click "Rebuild" to get the latest updates.'
+}
+
+parse_args() {
+    if [[ $# -ne 1 ]]; then
+        usage
+    fi
+    REPO="$1"
+}
+
+usage() {
+    echo 'update50 ASSIGNMENT'
+    echo
+    echo 'Example:'
+    echo '  update50 classroom50/hello'
+    exit 1
+}
+
+update "$@"
