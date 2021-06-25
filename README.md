@@ -1,6 +1,6 @@
 # Update50
 
-A `bash` script that replaces `.devcontainer` in the current working directory with the from a repository hosted on GitHub.com.
+A `bash` script that replaces `.devcontainer` in the current working directory with one from a repository hosted on GitHub.com.
 
 ## Usage
 
